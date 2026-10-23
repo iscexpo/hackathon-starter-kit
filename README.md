@@ -52,18 +52,34 @@ Templates are starting points, not restrictions. Teams may use their own stack i
 5. Explain accessibility needs, code/data licenses, AI-use disclosure, privacy expectations, and judging criteria before registration opens.
 6. Run `python scripts/validate.py` and confirm every template works before sharing the repository.
 
-## Publish to GitHub
+## Develop locally
 
-The starter kit is prepared for the public repository `iscexpo/hackathon-starter-kit`. To publish it from a Codespaces terminal, first download and extract this ZIP, then run the included script from the extracted project directory:
+Clone this repository and run the validation checks before adapting the kit:
 
 ```bash
-gh auth status
-bash scripts/publish.sh
+git clone https://github.com/iscexpo/hackathon-starter-kit.git
+cd hackathon-starter-kit
+python scripts/validate.py
+python -m unittest discover -s templates/python-cli/tests -v
+python -m compileall -q templates/python-cli
 ```
 
-The script initializes Git if needed, creates an initial commit if the folder has no commit yet, and asks GitHub CLI to create the repository with **public** visibility and push `main`. It exits without overwriting anything if the target repository already exists. Repository creation requires permission to create repositories in the `iscexpo` organization.
+Complete [EVENT_CONFIG.md](EVENT_CONFIG.md) before using the materials for a real event. Review all placeholders, submission channels, eligibility rules, privacy requirements, license terms, judging criteria, and contact details with the responsible organizers.
 
-After publishing, review the Actions tab and configure branch protection before accepting external contributions. Fill in `EVENT_CONFIG.md` before using this kit to run a real event.
+## Contributing
+
+Issues and focused pull requests are welcome. Fork this repository if you do not have permission to push branches to it, then create a feature branch for your changes.
+
+```bash
+git switch -c docs/describe-your-change
+# Make your changes, then run the checks shown above.
+git add .
+git commit -m "docs: describe your change"
+git push -u origin docs/describe-your-change
+gh pr create --base main
+```
+
+The `main` branch is protected. Pull requests must pass the **Content and template checks** workflow, receive one approving review, and resolve review conversations before merging. Do not push directly to `main`.
 
 ## License
 
@@ -71,6 +87,4 @@ After publishing, review the Actions tab and configure branch protection before 
 - Original guides, rubrics, and educational content: [CC BY 4.0](CONTENT-LICENSE.md)
 - Third-party assets and dependencies retain their own licenses; teams must check and document them.
 
-## Contributing
-
-Small fixes and improvements are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). Do not commit credentials, private participant information, or unlicensed material.
+Do not commit credentials, private participant information, or unlicensed material.
