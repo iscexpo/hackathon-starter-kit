@@ -87,4 +87,4 @@ The `main` branch is protected. Pull requests must pass the **Content and templa
 - Original guides, rubrics, and educational content: [CC BY 4.0](CONTENT-LICENSE.md)
 - Third-party assets and dependencies retain their own licenses; teams must check and document them.
 
-Do not commit credentials, private participant information, or unlicensed material.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full contribution guidelines. Do not commit credentials, private participant information, or unlicensed material.
