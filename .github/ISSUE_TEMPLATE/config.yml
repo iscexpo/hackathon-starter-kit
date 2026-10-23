@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Event details and support
+    url: https://github.com/iscexpo/hackathon-starter-kit
+    about: Read the published event configuration and help channel before submitting a public issue.

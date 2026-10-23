@@ -1,0 +1,76 @@
+name: Hackathon project submission
+description: Submit your project using the published event rules.
+title: "[Submission]: "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this public form only if the event organizers have designated GitHub issues as the official submission channel. Do not enter passwords, private contact information, student IDs, or confidential data.
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+      placeholder: A short, descriptive name
+    validations:
+      required: true
+  - type: input
+    id: team_name
+    attributes:
+      label: Team name
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Source repository URL
+      placeholder: https://github.com/your-team/your-project
+    validations:
+      required: true
+  - type: input
+    id: demo_url
+    attributes:
+      label: Demo URL (if available)
+      placeholder: https://example.com
+    validations:
+      required: false
+  - type: dropdown
+    id: track
+    attributes:
+      label: Track
+      options:
+        - Open track
+        - Web / mobile
+        - Data / AI
+        - Community impact
+        - Other (describe in the project README)
+    validations:
+      required: true
+  - type: textarea
+    id: problem_solution
+    attributes:
+      label: Problem and solution
+      description: Explain the problem, intended users, and what your prototype does.
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Setup and demo instructions
+      description: Tell judges how to run or review the project.
+    validations:
+      required: true
+  - type: textarea
+    id: technologies_and_attribution
+    attributes:
+      label: Technologies, data, and attribution
+      description: Include notable dependencies, datasets, third-party assets, and licenses.
+    validations:
+      required: true
+  - type: textarea
+    id: ai_disclosure
+    attributes:
+      label: AI tools and assistance (if applicable)
+      description: Follow the published event policy. If none were used, say so.
+    validations:
+      required: true

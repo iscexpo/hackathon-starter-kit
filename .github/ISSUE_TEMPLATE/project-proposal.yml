@@ -1,0 +1,33 @@
+name: Project proposal
+description: Share a project idea or request organizer feedback before building.
+title: "[Project Proposal]: "
+labels: ["project-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post private participant data or confidential information. Check event rules before publicly sharing an idea.
+  - type: input
+    id: title
+    attributes:
+      label: Proposed project name
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and intended users
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Expected tools, data, or support needed
+    validations:
+      required: false

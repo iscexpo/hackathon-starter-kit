@@ -1,0 +1,34 @@
+name: Validate starter kit
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  content-and-template-checks:
+    name: Content and template checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate required files and local Markdown links
+        run: python scripts/validate.py
+
+      - name: Compile Python template
+        run: python -m compileall -q templates/python-cli
+
+      - name: Test Python CLI template
+        run: python -m unittest discover -s templates/python-cli/tests -v
+
+      - name: Validate issue-form YAML
+        run: |
+          ruby -e 'require "yaml"; Dir.glob(".github/ISSUE_TEMPLATE/*.yml").each { |file| YAML.load_file(file, aliases: true); puts "Validated #{file}" }'
